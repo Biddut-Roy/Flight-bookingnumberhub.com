@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
-  const phoneNumber = "(205) 627-7643";
+  const phoneNumber = "(855) 771-6048";
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
@@ -61,7 +61,7 @@ export default function Home() {
                   className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6"
                 >
                   <Phone className="mr-2 h-6 w-6" />
-                  Call +1 (205) 627-7643
+                  Call +1 (855) 771-6048
                 </Button>
               </a>
             </div>
