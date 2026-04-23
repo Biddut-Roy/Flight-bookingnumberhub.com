@@ -7,181 +7,221 @@ import {
   Plane,
   Calendar,
   Shield,
+  Award,
+  ArrowRight,
+  Star,
+  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const phoneNumber = "(855) 771-6048";
 
+  const features = [
+    {
+      icon: Calendar,
+      title: "Flight Changes",
+      description: "Modify dates, times, or routes for your Delta or United Airlines reservation with expert assistance.",
+      color: "bg-blue-100 text-blue-600",
+    },
+    {
+      icon: Shield,
+      title: "Cancellations",
+      description: "Cancel your flight and understand refund eligibility or travel credit options available.",
+      color: "bg-emerald-100 text-emerald-600",
+    },
+    {
+      icon: Plane,
+      title: "Rebooking",
+      description: "Find alternative flights and rebook with the best available fares.",
+      color: "bg-amber-100 text-amber-600",
+    },
+  ];
+
+  const stats = [
+    { value: "50K+", label: "Flights Processed" },
+    { value: "24/7", label: "Support Available" },
+    { value: "98%", label: "Satisfaction Rate" },
+    { value: "<30 min", label: "Average Wait Time" },
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Plane className="h-8 w-8 text-blue-600" />
-            <span className="text-xl font-semibold text-slate-900">
-              Flight Support Services
-            </span>
-          </div>
-          <a href={`tel:${phoneNumber}`}>
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-              <Phone className="mr-2 h-5 w-5" />
-              Call Now
-            </Button>
-          </a>
-        </div>
-      </header>
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 via-white to-slate-100">
+      <Navigation />
 
       <section
-        className="relative bg-cover bg-center bg-no-repeat"
+        className="relative pt-20 overflow-hidden"
         style={{
           backgroundImage:
             "url('https://res.cloudinary.com/dbv2zv2ek/image/upload/v1761419237/airplane_y9txan.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
-        {/* Overlay for better text contrast */}
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-800/75"></div>
 
-        {/* Content */}
-        <div className="relative container mx-auto px-4 py-16 md:py-24 text-white">
+        <div className="relative container mx-auto px-4 py-20 md:py-32">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Need to Buy and Change or Cancel Your Flight?
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 border border-amber-400/30 rounded-full mb-6">
+              <Award className="h-4 w-4 text-amber-400" />
+              <span className="text-amber-400 text-sm font-medium">
+                Trusted by 50,000+ Travelers
+              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Need to Modify Your Flight?
             </h1>
-            <p className="text-xl md:text-2xl mb-8">
-              Expert assistance for Delta and United Airlines reservation
-              modifications
+            <p className="text-lg md:text-xl text-slate-200 mb-8 max-w-2xl mx-auto">
+              Expert assistance for Delta and United Airlines reservations. 
+              Fast, reliable service available around the clock.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <a href={`tel:${phoneNumber}`} className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6"
+                  className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold text-lg px-8 py-6 shadow-lg shadow-amber-500/30"
                 >
-                  <Phone className="mr-2 h-6 w-6" />
-                  Call +1 (855) 771-6048
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call +1 {phoneNumber}
                 </Button>
               </a>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-8">
               <div className="flex items-center gap-2">
-                <Clock className="h-5 w-5 text-blue-400" />
-                <span>Available 24/7</span>
+                <Clock className="h-5 w-5 text-amber-400" />
+                <span className="text-slate-300">Available 24/7</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-green-400" />
-                <span>Fast Processing</span>
+                <CheckCircle className="h-5 w-5 text-emerald-400" />
+                <span className="text-slate-300">Fast Processing</span>
               </div>
               <div className="flex items-center gap-2">
-                <Shield className="h-5 w-5 text-blue-400" />
-                <span>Secure Service</span>
+                <Shield className="h-5 w-5 text-amber-400" />
+                <span className="text-slate-300">Secure Service</span>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative bg-gradient-to-t from-white to-transparent pt-12 pb-16">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-slate-900 mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-slate-500">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-100 py-16">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">
-            Our Services
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="border-0 shadow-lg">
-              <CardContent className="pt-6">
-                <Calendar className="h-12 w-12 text-blue-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-3 text-slate-900">
-                  Flight Changes
-                </h3>
-                <p className="text-slate-600">
-                  Modify your Delta or United Airlines reservation dates, times,
-                  or routes with professional assistance.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-0 shadow-lg">
-              <CardContent className="pt-6">
-                <Shield className="h-12 w-12 text-blue-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-3 text-slate-900">
-                  Cancellations
-                </h3>
-                <p className="text-slate-600">
-                  Cancel your existing flight reservation and understand your
-                  options for refunds or credits.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-0 shadow-lg">
-              <CardContent className="pt-6">
-                <Plane className="h-12 w-12 text-blue-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-3 text-slate-900">
-                  Rebooking
-                </h3>
-                <p className="text-slate-600">
-                  Rebook your flight on Delta or United Airlines with
-                  alternative dates or destinations.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Our Premium Services
+            </h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              Comprehensive flight modification services tailored to your travel needs
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {features.map((feature, index) => (
+              <Card
+                key={index}
+                className="border-0 shadow-card-premium hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <CardContent className="pt-8">
+                  <div
+                    className={`w-14 h-14 rounded-2xl ${feature.color} flex items-center justify-center mb-5`}
+                  >
+                    <feature.icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-600">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-20 bg-gradient-to-r from-slate-900 to-slate-800">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
               Why Choose Our Service?
             </h2>
             <div className="space-y-6">
-              <div className="flex gap-4">
-                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
+              <div className="flex gap-4 p-5 bg-slate-800/50 rounded-xl border border-slate-700/50">
+                <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-2.5 rounded-lg h-fit">
+                  <CheckCircle className="h-5 w-5 text-white" />
+                </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                  <h3 className="text-lg font-semibold text-white mb-2">
                     Delta & United Airlines Specialists
                   </h3>
-                  <p className="text-slate-600">
-                    Our team specializes in handling modifications for Delta and
-                    United Airlines reservations exclusively.
+                  <p className="text-slate-400 text-sm">
+                    Our dedicated team specializes exclusively in Delta and United 
+                    Airlines reservations, ensuring expert handling of your modifications.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
+
+              <div className="flex gap-4 p-5 bg-slate-800/50 rounded-xl border border-slate-700/50">
+                <div className="bg-gradient-to-br from-amber-500 to-amber-600 p-2.5 rounded-lg h-fit">
+                  <Clock className="h-5 w-5 text-white" />
+                </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                  <h3 className="text-lg font-semibold text-white mb-2">
                     Available Around the Clock
                   </h3>
-                  <p className="text-slate-600">
-                    Get support whenever you need it with our 24/7 availability
+                  <p className="text-slate-400 text-sm">
+                    Get support whenever you need it with our 24/7 availability 
                     for urgent changes and cancellations.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
+
+              <div className="flex gap-4 p-5 bg-slate-800/50 rounded-xl border border-slate-700/50">
+                <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 p-2.5 rounded-lg h-fit">
+                  <Users className="h-5 w-5 text-white" />
+                </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                    Fast Response Time
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    Dedicated Support Team
                   </h3>
-                  <p className="text-slate-600">
-                    Quick processing of your flight modification requests to
-                    minimize stress and save time.
+                  <p className="text-slate-400 text-sm">
+                    Personal assistance from booking to boarding. We guide you through 
+                    every step of the modification process.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
+
+              <div className="flex gap-4 p-5 bg-slate-800/50 rounded-xl border border-slate-700/50">
+                <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-2.5 rounded-lg h-fit">
+                  <Star className="h-5 w-5 text-white" />
+                </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                    Expert Guidance
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    98% Satisfaction Rate
                   </h3>
-                  <p className="text-slate-600">
-                    Navigate airline policies and find the best solution for
-                    your travel needs.
+                  <p className="text-slate-400 text-sm">
+                    Join thousands of satisfied customers who trust us with 
+                    their travel modifications.
                   </p>
                 </div>
               </div>
@@ -190,58 +230,60 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-blue-600 py-16">
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Modify Your Flight?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Contact us now for assistance with your Delta or United Airlines
-            reservation changes and cancellations.
+            Contact us now for immediate assistance with your Delta or United 
+            Airlines reservation changes.
           </p>
           <a href={`tel:${phoneNumber}`}>
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+            <Button
+              size="lg"
+              className="bg-white text-blue-700 hover:bg-blue-50 text-lg px-10 py-7 shadow-xl"
+            >
               <Phone className="mr-2 h-6 w-6" />
               Call {phoneNumber} Now
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </a>
         </div>
       </section>
 
-      <section className="py-12 bg-slate-50">
+      <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">
               Frequently Asked Questions
             </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">
+            <div className="space-y-4">
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="font-semibold text-slate-900 mb-2">
                   Which airlines do you support?
                 </h3>
                 <p className="text-slate-600">
-                  We specialize in handling flight changes and cancellations for
-                  Delta Airlines and United Airlines reservations.
+                  We specialize exclusively in Delta Airlines and United Airlines 
+                  reservation modifications.
                 </p>
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="font-semibold text-slate-900 mb-2">
                   What services do you provide?
                 </h3>
                 <p className="text-slate-600">
-                  We assist with flight changes, cancellations, and rebooking
-                  for existing Delta and United Airlines reservations. Our team
-                  helps you navigate airline policies and process modifications
-                  efficiently.
+                  Flight changes, cancellations, rebooking, name corrections, and refund 
+                  assistance for existing reservations.
                 </p>
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="font-semibold text-slate-900 mb-2">
                   When are you available?
                 </h3>
                 <p className="text-slate-600">
-                  Our support team is available 24 hours a day, 7 days a week to
-                  assist with your flight modification needs.
+                  Our support team is available 24 hours a day, 7 days a week 
+                  for all your flight modification needs.
                 </p>
               </div>
             </div>
@@ -249,18 +291,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-slate-900 text-slate-300 py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="mb-4">
-            &copy; {new Date().getFullYear()} Flight Support Services. All
-            rights reserved.
-          </p>
-          <p className="text-sm text-slate-400">
-            We provide independent booking assistance and are not affiliated
-            with any airline.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
